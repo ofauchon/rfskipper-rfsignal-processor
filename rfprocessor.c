@@ -26,6 +26,9 @@ void message_callback(struct mosquitto *mosq, void *obj, const struct mosquitto_
 	bool match = 0;
 	printf("got message '%.*s' for topic '%s'\n", message->payloadlen, (char*) message->payload, message->topic);
 
+	int mid=1;
+	mosquitto_publish(mosq, &mid, "wod", 9, "wodwodwod", 0, 0);
+
 /*
 	mosquitto_topic_matches_sub("/devices/wb-adc/controls/+", message->topic, &match);
 	if (match) {
