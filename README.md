@@ -31,6 +31,8 @@ libmoquitto libraries and headers are provided by mosquitto server packages
 (this may change depending on your linux distribution)
 
 ```
+make clean all
+or 
 gcc -o rfprocessor -lmosquitto rfprocessor.c
 ```
 
