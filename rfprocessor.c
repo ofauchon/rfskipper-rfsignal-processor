@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
 	mosquitto_lib_init();
 
 	memset(clientid, 0, 24);
-	snprintf(clientid, 23, "mysql_log_%d", getpid());
+	snprintf(clientid, 23, "rfsignal_processor_%d", getpid());
 	mosq = mosquitto_new(clientid, true, 0);
 
 	if(mosq){
@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
 
 	    rc = mosquitto_connect(mosq, mqtt_host, mqtt_port, 60);
 
-		mosquitto_subscribe(mosq, NULL, "/signal_raw", 0);
+		mosquitto_subscribe(mosq, NULL, "signal_raw", 0);
 
 		while(run){
 			rc = mosquitto_loop(mosq, -1, 1);
